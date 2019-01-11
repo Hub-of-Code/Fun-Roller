@@ -1,0 +1,39 @@
+<html>
+<head><title>Test</title></head>
+<body onload="f();" style="margin:0;overflow-x:hidden">
+<style>
+   .move{
+   	 animation-name:spin;
+   	 animation-duration:10s;
+   	 animation-iteration-count:infinite;
+   }
+   @keyframes spin{
+     from{
+       left:-250px;
+     }
+     to{
+       left:100%;
+     }
+   }
+</style>
+<script>
+  var s = 360;
+  var t = 0;
+  function f(){
+    var u = setInterval(function(){
+       t=t+2;
+       s=s-3;
+       document.getElementById("sp1").style.transform = "rotateZ("+ t +"deg)";
+       document.getElementById("sp2").style.transform = "rotateZ("+ s +"deg)";
+       if (t==360){
+       	 t=0;
+       }
+       if (s==0){
+       	 s=360;
+       }
+    },1);
+  }
+</script>
+<table class="move" style="top:0;position:absolute;width:100%;height:100%"><tr><td><div style="width:100%;height:100%"><table style="width:100%;height:100%;width:100%"><tr><td><table cellspacing="0" cellpadding="0" style="height:220"><tr><td><img id="sp1" style="background:powderblue;border:20px solid powderblue;width:200px;height:200px;background-color:white;border-radius:50%;border-top:20px solid red;border-bottom:20px solid red"></td><td style="position:relative;left:-220px"><img id="sp2" style="border-radius:50%;background:powderblue;border:0;background-color:cornflowerblue;height:150px;width:150px;border:25px solid white;border-top:25px solid red;border-bottom:25px solid red;border-left:25px solid yellow;border-right:25px solid yellow"></td></tr></table></td></tr></table></div></td></tr></table>
+</body>
+</html>
